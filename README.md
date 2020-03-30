@@ -3,9 +3,9 @@ The goal of this project is to use javascript to interact with a user to generat
 
 # What the Website Looks Like
 The first image is what the site looks like upon loading. The second image is what the site looks like once the user clicks on the "Generate Password" button. The third image is what the site looks like once a password has been generated. 
-![First Image](./Develop/images/image1.png)
-![Second Image](./Develop/images/image2.png)
-![Third Image](./Develop/images/image3.png)
+![First Image](./assets/images/image1.png)
+![Second Image](./assets/images/image2.png)
+![Third Image](./assets/images/image3.png)
 
 # Link to Deployed Application
 Link: https://anishasnet.github.io/password-generator/
