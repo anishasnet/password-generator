@@ -1,42 +1,38 @@
 // Assignment code here
 var generatePassword = function() {
+    // strings of all possible character types
     var lowercase = "abcdefghijklmnopqrstuvwxyz";
     var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var numbers = "0123456789";
     var specialChars = " !\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
+    // using strings from above place each character in specified array
     var lowercaseArray = lowercase.split("");
     var uppercaseArray = uppercase.split("");
     var numericArray = numbers.split("");
     var specialCharsArray = specialChars.split("");
-    console.log(lowercaseArray);
-    console.log(uppercaseArray);
-    console.log(numericArray);
-    console.log(specialCharsArray);
+    // prompt user for password length
     var length = parseInt(window.prompt("Type the length of your password. It must be at least 8 characters but less than 128 characters."));
-    while (length < 8 || length >= 128) {
+    // validate password length must be >= 8 and < 128 and a number value
+    while (isNaN(length) || length < 8 || length >= 128) {
+        window.alert("Your length must be between 8 and 128. Do not include any non-numeric characters. Try again.");
         length = parseInt(window.prompt("Type the length of your password. It must be at least 8 characters but less than 128 characters."));
     }
-    console.log(length);
+    // prompt user for password's character type criteria
     var boolLower = window.confirm("Would you like lowercase letters in your password? Click OK for yes and Cancel for no.");
-    console.log(boolLower);
     var boolUpper = window.confirm("Would you like uppercase letters in your password? Click OK for yes and Cancel for no.");
-    console.log(boolUpper);
     var boolNumerics = window.confirm("Would you like numbers in your password? Click OK for yes and Cancel for no.");
-    console.log(boolNumerics);
     var boolSpecialChars = window.confirm("Would you like special characters in your password? Click OK for yes and Cancel for no.");
-    console.log(boolSpecialChars);
+    // validate that the user selects at least one character type
     while (!boolLower && !boolUpper && !boolNumerics && !boolSpecialChars) {
-        window.alert("You must select at least one of the criteria. Try it again");
+        window.alert("You must select at least one of the given character types.. Try it again");
         var boolLower = window.confirm("Would you like lowercase letters in your password? Click OK for yes and Cancel for no.");
-        console.log(boolLower);
         var boolUpper = window.confirm("Would you like uppercase letters in your password? Click OK for yes and Cancel for no.");
-        console.log(boolUpper);
-        var boolNumerics = window.confirm("Would you like numbers in your password? Click OK for yes and Cancel for no.");
-        console.log(boolNumerics);
+        var boolNumerics = window.confirm("Would you like numeric characters in your password? Click OK for yes and Cancel for no.");
         var boolSpecialChars = window.confirm("Would you like special characters in your password? Click OK for yes and Cancel for no.");
-        console.log(boolSpecialChars);
     }
+    // create a password variable 
     var result = "";
+    // based on character types selected create password.
     if (boolLower) {
         result = "";
         for (var i = 0; i < length; i++) {
@@ -205,7 +201,7 @@ var generatePassword = function() {
             }
         }
     }
-    console.log(result);
+    // return password so that it is printed to screen
     return result;
 }
 
